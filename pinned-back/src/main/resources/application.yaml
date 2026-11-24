@@ -1,3 +1,30 @@
+#spring:
+#  application:
+#    name: pinned-back
+
 spring:
   application:
     name: pinned-back
+
+  # [기본 설정] 설치 없이 어느 PC에서나 바로 실행되는 H2 데이터베이스
+  datasource:
+    url: jdbc:h2:mem:pinned;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
